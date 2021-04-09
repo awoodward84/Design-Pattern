@@ -1,3 +1,7 @@
+# ide artifacts
+.idea/
+*.iml
+
 # Compiled class file
 *.class
 
@@ -11,7 +15,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -21,3 +24,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# OS directory artifacts
+*.DS_Store
+/bin/
+
+#IntelliJ#
+*.DS_Store
+*.idea
+.gradle/
