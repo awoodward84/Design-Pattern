@@ -4,7 +4,7 @@ public class BattleScenario {
         CodeAmon mon2;
         Stats mon1Stats;
         //Stats mon2Stats;
-        Environment battleWeather;
+        Environment battleWeather = Environment.getInstance();
 
         public BattleScenario(CodeAmon pmon1, CodeAmon pmon2) {
             setMon1(pmon1);
@@ -19,7 +19,7 @@ public class BattleScenario {
          * @param pweather is the weather enum to use from Environment class
          */
         public void setEnvironment(Environment.Weather pweather) {
-            battleWeather = Environment.getInstance();
+            //battleWeather = Environment.getInstance();
             battleWeather.setEnvironmentType(pweather);
             //battleWeather = new Environment(pweather);
         }

@@ -7,7 +7,6 @@ public class Environment {
 
     private Environment() {
     }
-
     /**
      * Eager Initialization, simplest method of creating a singleton class.
      * @return One Instance of Environment type.
@@ -20,8 +19,8 @@ public class Environment {
     } */
 
     /**
-     * Environment constructor takes on type weather.
-     * @param weather Condition in which battle takes place.
+     * Sets the weather type to user specifications.
+     * @param weather used to set the environment type
      */
     public void setEnvironmentType(Weather weather) {
         if(weather.equals(Weather.sunny)) {
