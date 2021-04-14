@@ -15,13 +15,13 @@ public class CodeAmon {
     public CodeAmon() {
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
         if (rand == 0) {
-            name = Name.SERPANT;
+            name = Name.ALBERT;
         } else if (rand == 1) {
-            name = Name.NESSIE;
+            name = Name.RALPHIE;
         } else if (rand == 2) {
-            name = Name.DRAGON;
+            name = Name.SPARKY;
         } else {
-            name = Name.WEREWOLF;
+            name = Name.BULLY;
         }
         getType();
         getStats();
@@ -84,7 +84,7 @@ public class CodeAmon {
         Attack attack = null;
 
         switch (name) {
-            case SERPANT:
+            case ALBERT:
                 if (attackNumber == 0) {
                     desc = " uses Snake bite, increasing defense stat by 10%";
                     stats.defense *= 1.10;
@@ -100,7 +100,7 @@ public class CodeAmon {
                     attack = new Attack(stats.attack, "Water");
                 }
                 break;
-            case NESSIE:
+            case RALPHIE:
                 if (attackNumber == 0) {
                     desc = " uses Lock Tight, increasing defense stat by 10%";
                     stats.defense *= 1.10;
@@ -116,7 +116,7 @@ public class CodeAmon {
                     attack = new Attack(stats.attack, "Fire");
                 }
                 break;
-            case DRAGON:
+            case SPARKY:
                 if (attackNumber == 0) {
                     desc = " uses fire breath, increasing attack stat by 10%";
                     stats.attack *= 1.10;
@@ -133,7 +133,7 @@ public class CodeAmon {
                     attack = new Attack(stats.attack, "Ground");
                 }
                 break;
-            case WEREWOLF:
+            case BULLY:
                 if (attackNumber == 0) {
                     desc = " uses paw claws, increasing health stat by 10%";
                     double health = stats.health * 1.10;
@@ -150,7 +150,7 @@ public class CodeAmon {
                     attack = new Attack(stats.attack, "Ground");
                 }
                 break;
-            case SIREN:
+          /*  case SIREN:
                 if (attackNumber == 0) {
                     desc = " uses Wings, increasing health stat by 10%";
                     double health = stats.health * 1.10;
@@ -169,7 +169,7 @@ public class CodeAmon {
                     desc = " uses Alarm";
                     attack = new Attack(stats.attack, "Sky");
                 }
-                break;
+                break; */
             default:
                 break;
         }
@@ -177,8 +177,10 @@ public class CodeAmon {
         System.out.println(name.toString().toLowerCase() + desc);
         return attack;
     }
-
     public enum Name {
-        SERPANT, NESSIE, DRAGON, WEREWOLF, SIREN
+        ALBERT, RALPHIE, SPARKY, BULLY
     }
+    /*public enum Name {
+        SERPANT, NESSIE, DRAGON, WEREWOLF, SIREN
+    } */
 }

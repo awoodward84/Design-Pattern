@@ -19,15 +19,16 @@ public class BattleScenario {
          * @param pweather is the weather enum to use from Environment class
          */
         public void setEnvironment(Environment.Weather pweather) {
-            battleWeather = new Environment(pweather);
+            battleWeather = Environment.getInstance();
+            battleWeather.setEnvironmentType(pweather);
+            //battleWeather = new Environment(pweather);
         }
 
-        //Getter method for returning batte environment
-        public Environment getEnvironment() {
-            return battleWeather;
-        }
+         public Environment getBattleWeather() {
+             return battleWeather;
+         }
 
-        /**
+    /**
          * Initial battle method which contains print descriptions.
          */
         public void initiateBattle() {
@@ -163,33 +164,33 @@ public class BattleScenario {
             if (attackDam == 0.0) {
                 return 0;
             } else {
-                if (pattacker.name.equals(CodeAmon.Name.DRAGON)
-                        && pdefender.name.equals(CodeAmon.Name.SERPANT)) {
+                if (pattacker.name.equals(CodeAmon.Name.SPARKY)
+                        && pdefender.name.equals(CodeAmon.Name.ALBERT)) {
                     typebonusAttacker = 0.75;
                     typebonusDefender = 1.25;
                 }
-                if (pattacker.name.equals(CodeAmon.Name.SERPANT)
-                        && pdefender.name.equals(CodeAmon.Name.DRAGON)) {
+                if (pattacker.name.equals(CodeAmon.Name.ALBERT)
+                        && pdefender.name.equals(CodeAmon.Name.SPARKY)) {
                     typebonusAttacker = 1.25;
                     typebonusDefender = 0.75;
                 }
-                if (pattacker.name.equals(CodeAmon.Name.DRAGON)
-                        && pdefender.name.equals(CodeAmon.Name.NESSIE)) {
+                if (pattacker.name.equals(CodeAmon.Name.SPARKY)
+                        && pdefender.name.equals(CodeAmon.Name.RALPHIE)) {
                     typebonusAttacker = 1.25;
                     typebonusDefender = 0.75;
                 }
-                if (pattacker.name.equals(CodeAmon.Name.NESSIE)
-                        && pdefender.name.equals(CodeAmon.Name.DRAGON)) {
+                if (pattacker.name.equals(CodeAmon.Name.RALPHIE)
+                        && pdefender.name.equals(CodeAmon.Name.SPARKY)) {
                     typebonusAttacker = 0.75;
                     typebonusDefender = 1.25;
                 }
-                if (pattacker.name.equals(CodeAmon.Name.NESSIE)
-                        && pdefender.name.equals(CodeAmon.Name.SERPANT)) {
+                if (pattacker.name.equals(CodeAmon.Name.RALPHIE)
+                        && pdefender.name.equals(CodeAmon.Name.ALBERT)) {
                     typebonusAttacker = 1.25;
                     typebonusDefender = 0.75;
                 }
-                if (pattacker.name.equals(CodeAmon.Name.SERPANT)
-                        && pdefender.name.equals(CodeAmon.Name.NESSIE)) {
+                if (pattacker.name.equals(CodeAmon.Name.ALBERT)
+                        && pdefender.name.equals(CodeAmon.Name.RALPHIE)) {
                     typebonusAttacker = 0.75;
                     typebonusDefender = 1.25;
                 }
@@ -206,16 +207,16 @@ public class BattleScenario {
                 if (pdefender.type.equals(buff)) {
                     envbonusDefend = 1.25;
                 }
-                if (attackTyp.equals("Fire") && pattacker.name.equals(CodeAmon.Name.DRAGON)) {
+                if (attackTyp.equals("Fire") && pattacker.name.equals(CodeAmon.Name.SPARKY)) {
                     attackBonus = 1.20;
                 }
-                if (attackTyp.equals("Water") && pattacker.name.equals(CodeAmon.Name.SERPANT)) {
+                if (attackTyp.equals("Water") && pattacker.name.equals(CodeAmon.Name.ALBERT)) {
                     attackBonus = 1.20;
                 }
-                if (attackTyp.equals("Ground") && pattacker.name.equals(CodeAmon.Name.NESSIE)) {
+                if (attackTyp.equals("Ground") && pattacker.name.equals(CodeAmon.Name.RALPHIE)) {
                     attackBonus = 1.20;
                 }
-                if (attackTyp.equals("Normal") && pattacker.name.equals(CodeAmon.Name.WEREWOLF)) {
+                if (attackTyp.equals("Normal") && pattacker.name.equals(CodeAmon.Name.BULLY)) {
                     attackBonus = 1.20;
                 }
 

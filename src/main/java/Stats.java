@@ -20,31 +20,31 @@ public class Stats {
 
     public Stats(CodeAmon.Name name) {
         switch (name) {
-            case SERPANT:    //Water
+            case ALBERT:    //Water
                 attack = 60;
                 defense = 40;
                 health = 100;
                 break;
-            case NESSIE:   //Ground
+            case RALPHIE:   //Ground
                 attack = 30;
                 defense = 65;
                 health = 105;
                 break;
-            case DRAGON:    //Fire
+            case SPARKY:    //Fire
                 attack = 70;
                 defense = 40;
                 health = 90;
                 break;
-            case WEREWOLF:     //Normal
+            case BULLY:    //Normal
                 attack = 40;
                 defense = 40;
                 health = 110;
                 break;
-            case SIREN:     //Sky
+            /*case SIREN:     //Sky
                 attack = 35;
                 defense = 50;
                 health = 105;
-                break;
+                break; */
             default:
                 break;
         }

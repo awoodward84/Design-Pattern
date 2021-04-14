@@ -11,16 +11,23 @@ public class Main {
          * @param args Parameters can take in or set to on project.
          */
         public static void main(String[] args) {
+            //Beginning of a new world
             Trainer train = new Trainer("Michael");
             Trainer train1 = new Trainer("Denis");
 
             Trainer train2 = new Trainer(train.createList(), train.getName());
             Trainer train3 = new Trainer(train1.createList(), train1.getName());
 
-            /*   CodeAmon attacker1 = new CodeAmon(CodeAmon.Name.DRAGON);
-            CodeAmon defender1 = new CodeAmon(CodeAmon.Name.SERPANT);
-            final CodeAmon attacker2 = new CodeAmon(CodeAmon.Name.WEREWOLF);
-            final CodeAmon defender2 = new CodeAmon(CodeAmon.Name.NESSIE);
+            final CodeAmon attacker1 = new CodeAmon(CodeAmon.Name.SPARKY);
+            final CodeAmon defender1 = new CodeAmon(CodeAmon.Name.ALBERT);
+            final CodeAmon attacker2 = new CodeAmon(CodeAmon.Name.BULLY);
+            final CodeAmon defender2 = new CodeAmon(CodeAmon.Name.RALPHIE);
+            train2.addCodeMonster(attacker1);
+            train2.addCodeMonster(defender2);
+
+            train3.addCodeMonster(attacker1);
+            train3.addCodeMonster(defender1);
+
 
             //Create First battle scenario with two mons
             BattleScenario fight1 = new BattleScenario(attacker1, defender1);
@@ -36,6 +43,6 @@ public class Main {
             fight2.setEnvironment(Environment.Weather.rainy);
             //Initiate battle
             fight2.initiateBattle();
-            System.out.println("This is the end of the training simulation"); */
+            System.out.println("This is the end of the training simulation");
         }
     }
