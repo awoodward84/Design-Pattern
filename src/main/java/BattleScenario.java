@@ -149,7 +149,6 @@ public class BattleScenario {
             double result = 0;
             String attackTyp = pattack.getType();
             double attackDam = pattack.getDamage();
-
             double typebonusAttacker = 1;
             double typebonusDefender = 1;
 
