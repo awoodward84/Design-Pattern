@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Main {
     /**
      * Michael Woodward
@@ -18,15 +16,24 @@ public class Main {
             Trainer train2 = new Trainer(train.createList(), train.getName());
             Trainer train3 = new Trainer(train1.createList(), train1.getName());
 
-            final CodeAmon attacker1 = new CodeAmon(CodeAmon.Name.SPARKY);
-            final CodeAmon defender1 = new CodeAmon(CodeAmon.Name.ALBERT);
-            final CodeAmon attacker2 = new CodeAmon(CodeAmon.Name.BULLY);
-            final CodeAmon defender2 = new CodeAmon(CodeAmon.Name.RALPHIE);
-            train2.addCodeMonster(attacker1);
-            train2.addCodeMonster(defender2);
+           // final CodeAmon attacker1 = new SparkyCodeAMon();
+           // final CodeAmon defender1 = new AlbertCodeAMon();
+            //final CodeAmon attacker2 = new BullyCodeAMon();
+            //final CodeAmon defender2 = new RalphieCodeAMon();
+            CodeAmonFactory factory = new CodeAmonFactory();
+            CodeAmon attacker1 = null;
+            CodeAmon defender1 = null;
+            CodeAmon attacker2 = null;
+            CodeAmon defender2 = null;
+            attacker1 = factory.createCodeAmonFactory(CodeAmon.Name.SPARKY);
+            defender1 = factory.createCodeAmonFactory(CodeAmon.Name.ALBERT);
+            attacker2 = factory.createCodeAmonFactory(CodeAmon.Name.BULLY);
+            defender2 = factory.createCodeAmonFactory(CodeAmon.Name.RALPHIE);
+           // train2.addCodeMonster(attacker1);
+           // train2.addCodeMonster(defender2);
 
-            train3.addCodeMonster(attacker1);
-            train3.addCodeMonster(defender1);
+           // train3.addCodeMonster(attacker1);
+           // train3.addCodeMonster(defender1);
 
 
             //Create First battle scenario with two mons
@@ -38,11 +45,11 @@ public class Main {
             System.out.println("This is the end of the training simulation");
 
             //Create Second battle scenario with two mons
-            BattleScenario fight2 = new BattleScenario(attacker2, defender2);
+           /* BattleScenario fight2 = new BattleScenario(attacker2, defender2, Environment.Weather.rainy);
             //Set the weather
-            fight2.setEnvironment(Environment.Weather.rainy);
+            //fight2.setEnvironment(Environment.Weather.rainy);
             //Initiate battle
             fight2.initiateBattle();
-            System.out.println("This is the end of the training simulation");
+            System.out.println("This is the end of the training simulation"); */
         }
     }
