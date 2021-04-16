@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CodeAmon {
+public abstract class CodeAmon {
     String description;
     public String type;
     public Name name;
@@ -12,7 +12,7 @@ public class CodeAmon {
     /**
      * Constructor for class.
      */
-  /*  public CodeAmon() {
+   /* public CodeAmon() {
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
         if (rand == 0) {
             name = Name.ALBERT;
@@ -30,17 +30,17 @@ public class CodeAmon {
 
     /**
      * Constructor taske on name.
-     * @param name of mascotmon.
+    // * @param name of mascotmon.
      */
-    public CodeAmon(Name name) {
+   /* public CodeAmon(Name name) {
         this.name = name;
         getType();
         getStats();
         getDescription();
         getStrategy();
-    }
+    } */
 
-    private void getStrategy() {
+    public void getStrategy() {
         if(name.equals(Name.ALBERT)) {
             strategy = new AlbertAttackOperation();
         } else if(name.equals(Name.SPARKY)) {
@@ -53,22 +53,36 @@ public class CodeAmon {
             strategy = null;
         }
     }
-    private void getType() {
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public void getType() {
         Type t = new Type(name);
         this.type = t.type;
     }
+
 
     public Name getName() {
         return name;
     }
 
-    private void getStats() {
+    public void setStats(Stats stats) {
+        this.stats = stats;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void getStats() {
         stats = new Stats(name);
 
 
     }
 
-    private void getDescription() {
+    public void getDescription() {
         Description desc = new Description(name);
         this.description = desc.description;
     }
@@ -94,9 +108,6 @@ public class CodeAmon {
             }
         }
        return strategy.codeAMonAttack(this, attackNumber);
-
-        //System.out.println(name.toString().toLowerCase() + desc);
-       // return attack;
     }
     public enum Name {
         ALBERT, RALPHIE, SPARKY, BULLY
