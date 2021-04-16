@@ -4,6 +4,7 @@ public class BattleScenario {
         CodeAmon mon2;
         Stats mon1Stats;
         //Stats mon2Stats;
+
         Environment battleWeather = Environment.getInstance();
 
         public BattleScenario(CodeAmon pmon1, CodeAmon pmon2) {
@@ -11,7 +12,7 @@ public class BattleScenario {
             setMon2(pmon2);
         }
 
-        /**
+    /**
          * Sets environment of the battlefield, and sets buff/debuff modifiers for all Mascotmons on the
          * field. If the Mascotmon's type is buffed by the environment,they receive a 25% multiplier to
          * their attack and defense stat. If the Mascotmon's type is debuffed by the environment, they
@@ -19,7 +20,6 @@ public class BattleScenario {
          * @param pweather is the weather enum to use from Environment class
          */
         public void setEnvironment(Environment.Weather pweather) {
-            //battleWeather = Environment.getInstance();
             battleWeather.setEnvironmentType(pweather);
             //battleWeather = new Environment(pweather);
         }
@@ -107,7 +107,6 @@ public class BattleScenario {
             }
         }
 
-
         public void setMon1(CodeAmon pmonOne) {
             mon1 = pmonOne;
         }
@@ -155,10 +154,8 @@ public class BattleScenario {
             double envbonusAttack = 1;
             double envbonusDefend = 1;
             double attackBonus = 1;
-
             String buff = battleWeather.getBuffedType();
             String debuff = battleWeather.getDebuffedType();
-
             double defense = pdefender.stats.defense;
             if (attackDam == 0.0) {
                 return 0;
@@ -194,7 +191,7 @@ public class BattleScenario {
                     typebonusDefender = 1.25;
                 }
                 /////Environmental Bonus here
-                if (pattacker.type.equals(buff)) {
+               if (pattacker.type.equals(buff)) {
                     envbonusAttack = 1.25;
                 }
                 if (pdefender.type.equals(debuff)) {
