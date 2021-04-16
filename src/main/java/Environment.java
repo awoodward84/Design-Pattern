@@ -1,12 +1,11 @@
 public class Environment {
     boolean day;
     Weather weath;
-    String buffedType;
-    String debuffedType;
+    String buffedType = null;
+    String debuffedType = null;
+
     private static final Environment instance = new Environment();
 
-    private Environment() {
-    }
     /**
      * Eager Initialization, simplest method of creating a singleton class.
      * @return One Instance of Environment type.
@@ -14,10 +13,6 @@ public class Environment {
     public static Environment getInstance() {
         return instance;
     }
-    /*public Environment() {
-        this(Weather.neutral);
-    } */
-
     /**
      * Sets the weather type to user specifications.
      * @param weather used to set the environment type
@@ -27,11 +22,11 @@ public class Environment {
             this.buffedType = "Fire";        //Sparky
             this.debuffedType = "Water";     //Albert
             this.weath = Weather.sunny;
-        } if(weather.equals(Weather.rainy)) {
+        } else if(weather.equals(Weather.rainy)) {
             this.buffedType = "Water";      //Albert
             this.debuffedType = "Fire";     //Sparky
             this.weath = Weather.rainy;
-        } if(weather.equals(Weather.drought)) {
+        } else if(weather.equals(Weather.drought)) {
             this.buffedType = "Ground";     //Ralphie
             this.debuffedType = "Normal";   //Bully
             this.weath = Weather.drought;
@@ -39,24 +34,6 @@ public class Environment {
                 this.buffedType = "";
                 this.debuffedType = "";
         }
-      /*  switch (weather) {
-            case sunny:
-                this.buffedType = "Fire";        //Sparky
-                this.debuffedType = "Water";     //Albert
-                break;
-            case rainy:
-                this.buffedType = "Water";      //Albert
-                this.debuffedType = "Fire";     //Sparky
-                break;
-            case drought:
-                this.buffedType = "Ground";     //Ralphie
-                this.debuffedType = "Normal";   //Bully
-                break;
-            default:
-                this.buffedType = "";
-                this.debuffedType = "";
-                break;
-        } */
     }
 
     public Weather getWeath() {
