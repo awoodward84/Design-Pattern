@@ -40,11 +40,6 @@ public class Stats {
                 defense = 40;
                 health = 110;
                 break;
-            /*case SIREN:     //Sky
-                attack = 35;
-                defense = 50;
-                health = 105;
-                break; */
             default:
                 break;
         }
