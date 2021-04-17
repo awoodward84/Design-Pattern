@@ -1,5 +1,10 @@
 public class RalphieAttackOperation implements CodeAmonStrategyBase{
-
+    /**
+     *
+     * @param attacker Type of Codeamon implmented through the Factory pattern
+     * @param num Random number to choose which attack is necessary.
+     * @return the attack used
+     */
     @Override
     public Attack codeAMonAttack(CodeAmon attacker,int num) {
             String desc = "";
