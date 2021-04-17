@@ -5,33 +5,42 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Trainer {
     String name;
     LinkedList<CodeAmon> listOfMonster;
+    int streak;
 
     public Trainer(String trainName) {
         this.name = trainName;
     }
-    public Trainer(LinkedList<CodeAmon> code, String tName) {
+    public Trainer(LinkedList<CodeAmon> code, String tName, int winningStreak) {
         this.listOfMonster = code;
         this.name = tName;
+        this.streak = winningStreak;
     }
 
 
     public void addCodeMonster(CodeAmon mon) {
         if(listOfMonster.size() >= 6 ) {
-            System.out.println(getName() + ", you have to many code-a-mons");
+            System.out.println(getName() + ", you have too many code-a-mons");
         } else {
             listOfMonster.add(mon);
         }
+    }
+
+    public int getStreak() {
+        return streak;
+    }
+    public void incrementStreak(Trainer train) {
+        train.streak++;
     }
 
     /**
      * Retrieves a fighter or defender
      * @return
      */
-    public CodeAmon retrieveMonster() {
+    public CodeAmon retrieveMonster(Trainer train) {
         CodeAmon fighter = null;
-        for (CodeAmon codeAmon : listOfMonster) {
-            if (codeAmon != null) {
-                fighter = codeAmon;
+        for(int i = 0; i < train.listOfMonster.size(); i++) {
+            if(train.listOfMonster.get(i) != null) {
+                fighter = train.listOfMonster.get(i);
                 break;
             }
         }
@@ -44,33 +53,55 @@ public class Trainer {
         return new LinkedList<CodeAmon>();
     }
 
+    public void setListOfMonster(LinkedList<CodeAmon> listOfMonster) {
+        this.listOfMonster = listOfMonster;
+    }
+
+    public void setStreak(int streak) {
+        this.streak = streak;
+    }
+
+    public void removeCodeAmon(Trainer train, CodeAmon monster) {
+
+        if(train.listOfMonster.isEmpty()) {
+            return;
+        } else {
+            for(int i = 0; i < train.listOfMonster.size(); i++) {
+                if(train.listOfMonster.get(i).equals(monster)) {
+                    train.listOfMonster.remove(i);
+                    System.out.println(train.getName() + ", you have lost this round " +
+                            " thus losing the code a mon " + monster.name);
+                    break;
+                }
+            }
+        }
+    }
+
     /**
      * Function rewards trainers with an additional code-a-mon
      */
-  /*  public void rewardedCodeAMon(){
+    public void rewardedCodeAMon(Trainer train){
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
+        CodeAmonFactory fact = new CodeAmonFactory();
         CodeAmon reward = null;
         switch(rand) {
             case 1:
-                reward = new CodeAmon(CodeAmon.Name.DRAGON);
+                reward = fact.createCodeAmonFactory(CodeAmon.Name.SPARKY);
                 break;
             case 2:
-                reward = new CodeAmon(CodeAmon.Name.SERPANT);
+                reward = fact.createCodeAmonFactory(CodeAmon.Name.ALBERT);
                 break;
             case 3:
-                reward = new CodeAmon(CodeAmon.Name.WEREWOLF);
+                reward = fact.createCodeAmonFactory(CodeAmon.Name.BULLY);
                 break;
             case 4:
-                reward = new CodeAmon(CodeAmon.Name.NESSIE);
-                break;
-            case 5:
-                reward = new CodeAmon(CodeAmon.Name.SIREN);
+                reward = fact.createCodeAmonFactory(CodeAmon.Name.RALPHIE);
                 break;
             default:
                 break;
         } if(reward != null) {
-            addCodeMonster(reward);
+            train.addCodeMonster(reward);
         }
-    } */
+    }
 
 }
