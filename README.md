@@ -13,3 +13,16 @@ Utilizing a singleton to allow one class to no more than one instance.
 # Factory Pattern
 I want to utilize a factory pattern in order to implement a monster interface. This would allow an monstor object to be created
 and obtained while the monstor types specifically would implement that interface. 
+
+# Fulfilled Requirements
+> Singleton Pattern
+> Strategy Pattern
+> Factory Pattern
+
+# YouTube Link
+
+
+
+
+# Code Cites
+> Given 
