@@ -3,14 +3,23 @@ public class BattleScenario {
         CodeAmon mon1;
         CodeAmon mon2;
         Stats mon1Stats;
+        Trainer trainer1;
+        Trainer trainer2;
         //Stats mon2Stats;
+    /**
+     * Retrieving the one instance of the singleton class.
+     */
+    Environment battleWeather = Environment.getInstance();
 
-        Environment battleWeather = Environment.getInstance();
+    public BattleScenario(Trainer train1, Trainer train2) {
+        this.trainer1 = train1;
+        this.trainer2 = train2;
+        mon1 = train1.retrieveMonster(train1);
+        mon2 = train2.retrieveMonster(train2);
+        setMon1(mon1);
+        setMon2(mon2);
 
-        public BattleScenario(CodeAmon pmon1, CodeAmon pmon2) {
-            setMon1(pmon1);
-            setMon2(pmon2);
-        }
+    }
 
     /**
          * Sets environment of the battlefield, and sets buff/debuff modifiers for all Mascotmons on the
@@ -20,8 +29,10 @@ public class BattleScenario {
          * @param pweather is the weather enum to use from Environment class
          */
         public void setEnvironment(Environment.Weather pweather) {
+            /**
+             * Uses the only instance of the environment in the singleton patter to set the weather
+             */
             battleWeather.setEnvironmentType(pweather);
-            //battleWeather = new Environment(pweather);
         }
 
          public Environment getBattleWeather() {
@@ -48,17 +59,38 @@ public class BattleScenario {
                     + mon2.description);
             System.out.println(mon2.name + " prepares for the incoming attack");
 
-            CodeAmon winner = fight();
-            System.out.println(winner.name + " has won with " + winner.stats.health
-                    + " health left");
+            Trainer winner = fight();
+            System.out.println("The Trainer " + winner.name + " has won with the round!");
+            if(winner.equals(trainer1)) {
+                trainer2.removeCodeAmon(trainer2, mon2);
+                trainer1.incrementStreak(trainer1);
+                checkRewardingcodeAmon(winner);
+
+            } else if(winner.equals(trainer2)) {
+                trainer1.removeCodeAmon(trainer1, mon1);
+                trainer2.incrementStreak(trainer2);
+                checkRewardingcodeAmon(winner);
+
+            }
         }
 
+    /**
+     * Trainers are rewarded code a mon if they have won 3 rounds.
+     * @param winner Trainer who has won the round.
+     */
+    public void checkRewardingcodeAmon(Trainer winner) {
+            if (winner.getStreak() >= 3) {
+                winner.rewardedCodeAMon(winner);
+                //Setting the winning streak back down to zero.
+                winner.setStreak(0);
+            }
+        }
         /**
          * Sample fight scenario of two rounds.
          * Each Mascotmon uses one random attack per round; this attack multiplier is used to calculate
          * damage output against opposing mascotmon.
          */
-        public CodeAmon fight() {
+        public Trainer fight() {
             int round = 1;
             double damage1;
             double damage2;
@@ -97,10 +129,14 @@ public class BattleScenario {
                 if (mon2.stats.health <= 0.0 || mon1.stats.health <= 0.0) {
                     if (mon2.stats.health <= 0.0) {
                         System.out.println(mon2.name + " has fainted in round " + round);
-                        return mon1;
+                        System.out.println(mon1.name + " has won this battle with " + mon1.stats.health
+                                + " health left");
+                        return trainer1;
                     } else if (mon1.stats.health <= 0.0) {
                         System.out.println(mon1.name + " has fainted in round " + round);
-                        return mon2;
+                        System.out.println(mon2.name + " has won this battle with" + mon2.stats.health
+                                + " health left");
+                        return trainer2;
                     }
                 }
                 round++;
