@@ -4,7 +4,12 @@
  */
 public interface CodeAmonStrategyBase {
 
-
+    /**
+     *
+     * @param attacker Type of Codeamon implmented through the Factory pattern
+     * @param num Random number to choose which attack is necessary.
+     * @return An attack from a monster chosen at runtime.
+     */
     public Attack codeAMonAttack(CodeAmon attacker, int num);
 
 }
