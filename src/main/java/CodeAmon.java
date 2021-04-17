@@ -107,6 +107,7 @@ public abstract class CodeAmon {
                 break;
             }
         }
+        //Utilizing the strategy pattern here.
        return strategy.codeAMonAttack(this, attackNumber);
     }
     public enum Name {
