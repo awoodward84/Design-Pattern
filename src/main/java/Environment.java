@@ -4,8 +4,14 @@ public class Environment {
     String buffedType = null;
     String debuffedType = null;
 
+    /**
+     * Creating the one instance for the singleton pattern.
+     */
     private static final Environment instance = new Environment();
 
+    private Environment() {
+
+    }
     /**
      * Eager Initialization, simplest method of creating a singleton class.
      * @return One Instance of Environment type.
