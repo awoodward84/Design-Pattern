@@ -1,7 +1,11 @@
 
 
 public class CodeAmonFactory {
-
+    /**
+     * Function returns specific code a mon based on the factory implementation.
+     * @param name Name of the Code a mon user wishes to retrieve.
+     * @return Code a mon.
+     */
     public CodeAmon createCodeAmonFactory(CodeAmon.Name name){
         CodeAmon monster = null;
         if(name.equals(CodeAmon.Name.ALBERT)) {
