@@ -20,8 +20,10 @@ and obtained while the monstor types specifically would implement that interface
 > Factory Pattern
 
 # YouTube Link
+> https://youtu.be/ABxKxxKV31w
 
-
+#Travis CI Link
+> https://travis-ci.com/github/awoodward84/Design-Pattern
 
 
 # Code Cites
