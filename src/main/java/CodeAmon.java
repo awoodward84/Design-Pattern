@@ -5,49 +5,22 @@ public abstract class CodeAmon {
     public String type;
     public Name name;
     public Stats stats;
-    //public double weatherBonus = 1.0;
-    //public double typeBonus = 1.0;
     public int bufCounter = 0;
+
     private CodeAmonStrategyBase strategy;
-    /**
-     * Constructor for class.
-     */
-   /* public CodeAmon() {
-        int rand = ThreadLocalRandom.current().nextInt(0, 4);
-        if (rand == 0) {
-            name = Name.ALBERT;
-        } else if (rand == 1) {
-            name = Name.RALPHIE;
-        } else if (rand == 2) {
-            name = Name.SPARKY;
-        } else {
-            name = Name.BULLY;
-        }
-        getType();
-        getStats();
-        getDescription();
-    } */
 
     /**
-     * Constructor taske on name.
-    // * @param name of mascotmon.
+     * Sets the strategy to the specific codeamon extracted.
      */
-   /* public CodeAmon(Name name) {
-        this.name = name;
-        getType();
-        getStats();
-        getDescription();
-        getStrategy();
-    } */
-
     public void getStrategy() {
-        if(name.equals(Name.ALBERT)) {
+
+        if (name.equals(Name.ALBERT)) {
             strategy = new AlbertAttackOperation();
-        } else if(name.equals(Name.SPARKY)) {
+        } else if (name.equals(Name.SPARKY)) {
             strategy = new SparkyAttackOperation();
-        } else if(name.equals(Name.RALPHIE)) {
+        } else if (name.equals(Name.RALPHIE)) {
             strategy = new RalphieAttackOperation();
-        } else if(name.equals(Name.BULLY)) {
+        } else if (name.equals(Name.BULLY)) {
             strategy = new BullyAttackOperation();
         } else {
             strategy = null;
@@ -76,6 +49,9 @@ public abstract class CodeAmon {
         this.type = type;
     }
 
+    /**
+     * Sets the stats of the codeamon to the correct specifications.
+     */
     public void getStats() {
         stats = new Stats(name);
 
@@ -108,12 +84,11 @@ public abstract class CodeAmon {
             }
         }
         //Utilizing the strategy pattern here.
-       return strategy.codeAMonAttack(this, attackNumber);
+        return strategy.codeAMonAttack(this, attackNumber);
     }
+
     public enum Name {
         ALBERT, RALPHIE, SPARKY, BULLY
     }
-    /*public enum Name {
-        SERPANT, NESSIE, DRAGON, WEREWOLF, SIREN
-    } */
+
 }

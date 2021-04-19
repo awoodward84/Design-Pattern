@@ -1,9 +1,10 @@
 
 
-public class BullyAttackOperation implements CodeAmonStrategyBase{
+public class BullyAttackOperation implements CodeAmonStrategyBase {
+
     /**
-     *
-     * @param attacker Type of Codeamon implmented through the Factory pattern
+     *Utilizing the strategy pattern to create Bully's attack.
+     * @param attacker Type of Codeamon implemented through the Factory pattern.
      * @param num Random number to choose which attack is necessary.
      * @return the attack used
      */

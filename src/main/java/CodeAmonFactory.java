@@ -6,15 +6,16 @@ public class CodeAmonFactory {
      * @param name Name of the Code a mon user wishes to retrieve.
      * @return Code a mon.
      */
-    public CodeAmon createCodeAmonFactory(CodeAmon.Name name){
+    public CodeAmon createCodeAmonFactory(CodeAmon.Name name) {
         CodeAmon monster = null;
-        if(name.equals(CodeAmon.Name.ALBERT)) {
+
+        if (name.equals(CodeAmon.Name.ALBERT)) {
             return new AlbertCodeAMon();
-        } else if(name.equals(CodeAmon.Name.RALPHIE)) {
+        } else if (name.equals(CodeAmon.Name.RALPHIE)) {
             return new RalphieCodeAMon();
-        } else if(name.equals(CodeAmon.Name.BULLY)){
+        } else if (name.equals(CodeAmon.Name.BULLY)) {
             return new BullyCodeAMon();
-        } else if(name.equals(CodeAmon.Name.SPARKY)) {
+        } else if (name.equals(CodeAmon.Name.SPARKY)) {
             return new SparkyCodeAMon();
         } else {
             return null;

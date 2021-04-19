@@ -13,7 +13,6 @@ public class Attack {
     }
 
     public double getDamage() {
-
-                return damage;
+        return damage;
     }
 }

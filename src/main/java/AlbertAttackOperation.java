@@ -1,14 +1,15 @@
 
 
-public class AlbertAttackOperation implements CodeAmonStrategyBase{
+public class AlbertAttackOperation implements CodeAmonStrategyBase {
+
     /**
-     *
+     *Utilizing the strategy pattern to create Albert's attack.
      * @param attacker Type of Codeamon implmented through the Factory pattern
      * @param num Random number to choose which attack is necessary.
      * @return the attack used
      */
     @Override
-    public Attack codeAMonAttack(CodeAmon attacker,int num){
+    public Attack codeAMonAttack(CodeAmon attacker,int num) {
         String desc = "";
         Attack attack = null;
         if (num == 0) {

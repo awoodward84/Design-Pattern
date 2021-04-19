@@ -1,6 +1,6 @@
-public class SparkyAttackOperation implements CodeAmonStrategyBase{
+public class SparkyAttackOperation implements CodeAmonStrategyBase {
     /**
-     *
+     *Utilizing the strategy pattern to create sparky's attack.
      * @param attacker Type of Codeamon implmented through the Factory pattern
      * @param num Random number to choose which attack is necessary.
      * @return the attack used
@@ -26,6 +26,6 @@ public class SparkyAttackOperation implements CodeAmonStrategyBase{
         }
         System.out.println(attacker.name.toString().toLowerCase() + desc);
         return attack;
-        }
-
     }
+
+}

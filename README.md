@@ -25,4 +25,7 @@ and obtained while the monstor types specifically would implement that interface
 
 
 # Code Cites
-> Given 
+> Professor Mehlhase ASU Teaching Staff
+> April 18th, 2021
+> Mascotmon Simulator
+> Version 1.0
