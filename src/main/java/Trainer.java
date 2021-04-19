@@ -23,6 +23,10 @@ public class Trainer {
         this.streak = winningStreak;
     }
 
+    public LinkedList<CodeAmon> getListOfMonster() {
+        return listOfMonster;
+    }
+
     /**
      * Adds a monster to the Trainer's list of codeamon.
      * @param mon Specified monster.
@@ -39,9 +43,9 @@ public class Trainer {
         return streak;
     }
 
-    public void incrementStreak(Trainer train) {
-        train.streak = train.streak++;
-    }
+//   public void incrementStreak(Trainer train) {
+//        train.streak++;
+//    }
 
     /**
      * Retrieves a fighter or defender.

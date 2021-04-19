@@ -45,11 +45,10 @@ public class TrainerTest {
     public void retrieveMonsterTest() {
         Trainer train = Mockito.mock(Trainer.class);
         CodeAmonFactory factory = Mockito.mock(CodeAmonFactory.class);
-        CodeAmon attacker1 = factory.createCodeAmonFactory(CodeAmon.Name.SPARKY);
+        CodeAmon attack1 = factory.createCodeAmonFactory(CodeAmon.Name.SPARKY);
         CodeAmon expected = null;
-        train.addCodeMonster(attacker1);
         expected = train.retrieveMonster(train);
-        assertEquals(attacker1, expected);
+        assertEquals(attack1, expected);
     }
      @Test
     public void addCodeMonsterTest() {
@@ -64,9 +63,25 @@ public class TrainerTest {
 
      @Test
     public void createListTest() {
-         Trainer train = Mockito.mock(Trainer.class);
+        Trainer train = Mockito.mock(Trainer.class);
         LinkedList<CodeAmon> code = train.createList();
         assertNotNull(code);
+     }
+     @Test
+    public void rewardedCodeAmonTest() {
+         Trainer train = Mockito.mock(Trainer.class);
+         train.rewardedCodeAMon(train);
+         assertNotNull(train.getListOfMonster());
+     }
+
+     @Test
+    public void increamentStreakTest() {
+         Trainer train = Mockito.mock(Trainer.class);
+         Trainer train2 = new Trainer(train.createList(), "Michael", 0);
+         train2.setStreak(1);
+         int expected = train2.getStreak();
+         assertEquals(1,expected);
+
      }
 }
 

@@ -69,12 +69,14 @@ public class BattleScenario {
         System.out.println("The Trainer " + winner.name + " has won with the round!");
         if (winner.equals(trainer1)) {
             trainer2.removeCodeAmon(trainer2, mon2);
-            trainer1.incrementStreak(trainer1);
+            int streak = trainer1.getStreak() + 1;
+            trainer1.setStreak(streak);
             checkRewardingcodeAmon(winner);
 
         } else if (winner.equals(trainer2)) {
             trainer1.removeCodeAmon(trainer1, mon1);
-            trainer2.incrementStreak(trainer2);
+            int streak = trainer1.getStreak() + 1;
+            trainer2.setStreak(streak);
             checkRewardingcodeAmon(winner);
 
         }
